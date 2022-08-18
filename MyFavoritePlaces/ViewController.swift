@@ -5,11 +5,11 @@ import UIKit
 final class ViewController: UIViewController, UITableViewDelegate {
     // MARK: - variables parametrs
     
-    let restaurantNames = ["dadsasd","dasdada","dadsasd","dasdada","dadsasd","dasdada",
-                           "dadsasd","dasdada","dadsasd","dasdada","dadsasd","dasdada"]
+    let restaurantNames = ["1dadsasd","2dasdada","3dadsasd","4dasdada","5dadsasd","6dasdada",
+                           "7dadsasd","8dasdada","9dadsasd","10dasdada","11dadsasd","12dasdada"]
     
     private lazy var tableList: UITableView = {
-        let table = UITableView.init(frame: .zero, style: UITableView.Style.grouped)
+        let table = UITableView.init(frame: .zero, style: UITableView.Style.insetGrouped)
         table.delegate = self
         table.dataSource = self
         table.translatesAutoresizingMaskIntoConstraints = false
@@ -61,9 +61,10 @@ extension ViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
-        cell.textLabel?.text = "Cell"
+        let cell = UITableViewCell(style: .default, reuseIdentifier: "cellIdentifier")
+        cell.textLabel?.text = restaurantNames[indexPath.row]
         return cell
     }
+
 
 }
