@@ -1,9 +1,3 @@
-//
-//  AppDelegate.swift
-//  MyFavoritePlaces
-//
-//  Created by Алексей on 18.08.2022.
-//
 
 import UIKit
 
