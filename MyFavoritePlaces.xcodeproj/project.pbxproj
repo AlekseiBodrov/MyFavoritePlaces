@@ -15,6 +15,8 @@
 		20B73A9A28AE6A7C00814C1E /* MyFavoritePlacesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20B73A9928AE6A7C00814C1E /* MyFavoritePlacesTests.swift */; };
 		20B73AA428AE6A7C00814C1E /* MyFavoritePlacesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20B73AA328AE6A7C00814C1E /* MyFavoritePlacesUITests.swift */; };
 		20B73AA628AE6A7C00814C1E /* MyFavoritePlacesUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20B73AA528AE6A7C00814C1E /* MyFavoritePlacesUITestsLaunchTests.swift */; };
+		20B73AB328AF8A8600814C1E /* CastomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20B73AB228AF8A8500814C1E /* CastomTableViewCell.swift */; };
+		20B73AB528AF8E6300814C1E /* PlaceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20B73AB428AF8E6300814C1E /* PlaceModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +49,8 @@
 		20B73A9F28AE6A7C00814C1E /* MyFavoritePlacesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyFavoritePlacesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		20B73AA328AE6A7C00814C1E /* MyFavoritePlacesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFavoritePlacesUITests.swift; sourceTree = "<group>"; };
 		20B73AA528AE6A7C00814C1E /* MyFavoritePlacesUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFavoritePlacesUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		20B73AB228AF8A8500814C1E /* CastomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastomTableViewCell.swift; sourceTree = "<group>"; };
+		20B73AB428AF8E6300814C1E /* PlaceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +104,8 @@
 				20B73A8228AE6A7900814C1E /* AppDelegate.swift */,
 				20B73A8428AE6A7900814C1E /* SceneDelegate.swift */,
 				20B73A8628AE6A7900814C1E /* ViewController.swift */,
+				20B73AB428AF8E6300814C1E /* PlaceModel.swift */,
+				20B73AB228AF8A8500814C1E /* CastomTableViewCell.swift */,
 				20B73A8B28AE6A7C00814C1E /* Assets.xcassets */,
 				20B73A8D28AE6A7C00814C1E /* LaunchScreen.storyboard */,
 				20B73A9028AE6A7C00814C1E /* Info.plist */,
@@ -256,6 +262,8 @@
 			files = (
 				20B73A8728AE6A7900814C1E /* ViewController.swift in Sources */,
 				20B73A8328AE6A7900814C1E /* AppDelegate.swift in Sources */,
+				20B73AB528AF8E6300814C1E /* PlaceModel.swift in Sources */,
+				20B73AB328AF8A8600814C1E /* CastomTableViewCell.swift in Sources */,
 				20B73A8528AE6A7900814C1E /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -1,16 +1,24 @@
 
-
 import UIKit
 
-final class ViewController: UIViewController, UITableViewDelegate {
+final class ViewController: UIViewController {
     // MARK: - variables parametrs
+
     
-    let restaurantNames = [
-        "Burger Heroes", "Kitchen", "Bonsai", "Дастархан",
-        "Индокитай", "X.O", "Балкан Гриль", "Sherlock Holmes",
-        "Speak Easy", "Morris Pub", "Вкусные истории",
-        "Классик", "Love&Life", "Шок", "Бочка"
-    ]
+    let places = Place.getPlaces()
+    
+    private lazy var launchView: UIImageView = {
+        let view = UIImageView()
+        view.backgroundColor = #colorLiteral(red: 0.56266886, green: 0.8747029901, blue: 0.6645568013, alpha: 1)
+        view.image = UIImage(named: "LaunchScreenImg")
+        return view
+    }()
+    
+    private lazy var tabBar: UITabBar = {
+        let tabBar = UITabBar()
+        tabBar.translatesAutoresizingMaskIntoConstraints = false
+        return tabBar
+    }()
     
     private lazy var tableList: UITableView = {
         let table = UITableView.init(frame: .zero, style: UITableView.Style.plain)
@@ -32,12 +40,12 @@ final class ViewController: UIViewController, UITableViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.addSubview(launchView)
         setupView()
         setupConstraint()
     }
     
     private func setupView(){
-        view.backgroundColor = .white
         [tableList].forEach {
             view.addSubview($0)
         }
@@ -45,31 +53,47 @@ final class ViewController: UIViewController, UITableViewDelegate {
     
     private func setupConstraint(){
         NSLayoutConstraint.activate([
-        
-        tableList.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-        tableList.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-        tableList.topAnchor.constraint(equalTo: view.topAnchor, constant: 20),
-        tableList.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+            launchView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            launchView.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+        ])
+        NSLayoutConstraint.activate([
+            tableList.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            tableList.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            tableList.topAnchor.constraint(equalTo: view.topAnchor),
+            tableList.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
     }
-
+    
 }
 
 
 // MARK: - UITableViewDataSource
 
 extension ViewController: UITableViewDataSource {
-
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return restaurantNames.count
+        return places.count
     }
-
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell(style: .default, reuseIdentifier: "cellIdentifier")
-        cell.textLabel?.text = restaurantNames[indexPath.row]
-        cell.imageView?.image = UIImage(named: restaurantNames[indexPath.row])
+        let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "cellIdentifier")
+        
+        cell.textLabel?.text = places[indexPath.row].name
+        cell.detailTextLabel?.text = places[indexPath.row].location
+        cell.imageView?.image = UIImage(named: places[indexPath.row].image)
+        
+        cell.imageView?.layer.cornerRadius = cell.frame.size.height / 1 // почему cornerRadius != 0,5 height
+        cell.imageView?.clipsToBounds = true // обрезка image
         return cell
     }
+    
+    
+}
 
+// MARK: - UITableViewDelegate
 
+extension ViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 85
+    }
 }
